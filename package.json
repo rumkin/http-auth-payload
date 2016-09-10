@@ -1,0 +1,36 @@
+{
+  "main": "src/index.js",
+  "scripts": {
+    "cov": "istanbul cover node_modules/mocha/bin/_mocha -- -u exports -R spec test/**.spec.js",
+    "test": "mocha test/**.spec.js"
+  },
+  "license": "MIT",
+  "name": "http-auth-payload",
+  "version": "0.1.0",
+  "description": "HTTP Authorization header customizable middleware",
+  "bin": {
+    "http-authorization": "cli.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rumkin/http-auth-payload.git"
+  },
+  "keywords": [
+    "authorization",
+    "auth",
+    "webauth"
+  ],
+  "author": "rumkin <dev@rumk.in>",
+  "bugs": {
+    "url": "https://github.com/rumkin/http-auth-payload/issues"
+  },
+  "homepage": "https://github.com/rumkin/http-auth-payload#readme"
+}
