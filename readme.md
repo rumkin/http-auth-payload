@@ -14,7 +14,7 @@ npm install http-auth-payload
 Usage example with express application:
 
 ```javascript
-const express = express();
+const express = require('express');
 const httpAuthPayload = require('http-auth-payload');
 
 express()
