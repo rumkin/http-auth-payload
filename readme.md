@@ -22,12 +22,9 @@ const httpAuthPayload = require('http-auth-payload');
 express()
     .use(httpAuthPayload)
     .use((req, res, next) => {
-        if (req.auth.type !== 'bearer') {
-            res.status(403).send('Access denied');
-            return;
-        }
+        const {auth} = req;
 
-        if (req.auth.payload !== 'secret-token') {
+        if (auth.type !== 'token' || auth.payload !== 'super-secret-value') {
             res.status(403).send('Access denied');
             return;
         }
