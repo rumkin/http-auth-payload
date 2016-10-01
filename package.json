@@ -6,7 +6,7 @@
   },
   "license": "MIT",
   "name": "http-auth-payload",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "HTTP Authorization header customizable middleware",
   "bin": {
     "http-authorization": "cli.js"
@@ -14,11 +14,11 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rumkin/http-auth-payload.git"
