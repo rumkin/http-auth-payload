@@ -2,6 +2,8 @@
 
 Parse authorization http header and add auth information into request object.
 
+![Build](https://img.shields.io/travis/rumkin/file-storage.svg)
+
 ## Install
 
 Install with npm:
