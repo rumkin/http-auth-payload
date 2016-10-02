@@ -2,7 +2,7 @@
 
 Parse authorization http header and add auth information into request object.
 
-![Build](https://img.shields.io/travis/rumkin/file-storage.svg)
+![Build](https://img.shields.io/travis/rumkin/http-auth-payload.svg)
 
 ## Install
 
