@@ -22,9 +22,12 @@ const httpAuthPayload = require('http-auth-payload');
 express()
     .use(httpAuthPayload)
     .use((req, res, next) => {
-        const {auth} = req;
+        if (req.auth.type !== 'bearer') {
+            res.status(403).send('Access denied');
+            return;
+        }
 
-        if (auth.type !== 'token' || auth.payload !== 'super-secret-value') {
+        if (req.auth.payload !== 'secret-token') {
             res.status(403).send('Access denied');
             return;
         }
@@ -36,6 +39,9 @@ express()
     })
     .listen();
 ```
+
+If authorization header not passed or empty then type has value `none` and
+request property 'hasAuth' is `false`.
 
 ## License
 

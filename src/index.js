@@ -1,23 +1,45 @@
-module.exports = httpAuthPayload;
+'use strict';
 
 function httpAuthPayload(req, res, next) {
-    var auth, type, payload;
+    var header = req.headers.hasOwnProperty('authorization')
+        ? req.headers.authorization
+        : '';
 
-    if (req.headers.hasOwnProperty('authorization')) {
-        let parts = req.headers.authorization.split(' ');
-        type = parts.shift().toLowerCase();
-        payload = parts.join(' ');
+    req.auth = parse(header);
+
+    if (req.auth.type === 'none') {
+        req.hasAuth = false;
     }
     else {
-        type = 'none';
-        payload = '';
+        req.hasAuth = true;
     }
-
-    auth = {type, payload};
-
-    req.auth = auth;
-
-
 
     next();
 }
+
+function parse(value) {
+    if (! value.length) {
+        return {
+            type: 'none',
+            payload: '',
+        };
+    }
+
+    var parts = value.split(' ');
+
+    if (parts.length < 2) {
+        return {
+            type: parts[0],
+            payload: '',
+        };
+    }
+
+    var type = parts.shift().toLowerCase();
+    var payload = parts.join(' ');
+
+    return {type, payload};
+}
+
+
+module.exports = httpAuthPayload;
+httpAuthPayload.parse = parse;

@@ -7,6 +7,7 @@ describe('httpAuthPayload', () => {
         server = http.createServer((req, res) => {
             httpAuthPayload(req, res, () => {
                 assert.ok(!! req.auth, 'req.auth defined');
+                assert.ok(req.hasAuth, 'hasAuth is `true`');
                 assert.equal('object', typeof req.auth, 'req.auth is an object');
 
                 assert.equal('signature', req.auth.type, 'auth type is "signature"');
