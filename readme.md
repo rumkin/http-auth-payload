@@ -8,7 +8,7 @@ Parse authorization http header and add auth information into request object.
 
 Install with npm:
 ```bash
-npm install http-auth-payload
+npm i http-auth-payload
 ```
 
 ## Usage
