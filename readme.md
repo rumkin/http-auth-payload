@@ -43,6 +43,28 @@ express()
 If authorization header not passed or empty then type has value `none` and
 request property 'hasAuth' is `false`.
 
+## API
+
+### (req, res, next)
+
+Module exports middleware.
+
+### parse(authorization) => AuthObject
+
+Method parse authorization and return auth object:
+
+```
+{
+    type: 'http',
+    payload: '...',
+}
+```
+
+### parseRequest(request) => AuthObject
+
+Method get request's authorization header and parse it with `parse` method.
+
+
 ## License
 
 MIT.

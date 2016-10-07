@@ -1,11 +1,7 @@
 'use strict';
 
 function httpAuthPayload(req, res, next) {
-    var header = req.headers.hasOwnProperty('authorization')
-        ? req.headers.authorization
-        : '';
-
-    req.auth = parse(header);
+    req.auth = parseRequest(req);
 
     if (req.auth.type === 'none') {
         req.hasAuth = false;
@@ -40,6 +36,19 @@ function parse(value) {
     return {type, payload};
 }
 
+function parseRequest(request) {
+    var authorization;
+    if (request.headers.hasOwnProperty('authorization')) {
+        authorization = request.headers.authorization;
+    }
+    else {
+        authorization = '';
+    }
+
+    return parse(authorization);
+}
 
 module.exports = httpAuthPayload;
+
 httpAuthPayload.parse = parse;
+httpAuthPayload.parseRequest = parseRequest;
