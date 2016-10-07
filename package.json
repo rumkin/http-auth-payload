@@ -6,11 +6,8 @@
   },
   "license": "MIT",
   "name": "http-auth-payload",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "HTTP Authorization header customizable middleware",
-  "bin": {
-    "http-authorization": "cli.js"
-  },
   "directories": {
     "test": "test"
   },
